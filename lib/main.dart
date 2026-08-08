@@ -174,10 +174,61 @@ class HomeActivity extends StatelessWidget{
             ),
           ],
         ),
+       ),
+      // body: Container(
+      //   width: 450,
+      //   height: 450,
+      //   padding: const EdgeInsets.all(0),
+      //   decoration: BoxDecoration(
+      //     color: Colors.grey,
+      //     border: Border.all(color: Colors.black87, width: 10),
+      //   ),
+      //   child: const Text("Hello Flutter",
+      //     style: TextStyle(color: Colors.white),
+      //     textAlign: TextAlign.center,
+      //   ),
+      // ),
+
+      // body: Column(
+      //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      //   children: [
+      //     Container(
+      //       height: 50,
+      //       width: 100,
+      //       child: Image.network("https://upload.wikimedia.org/wikipedia/commons/1/17/Google-flutter-logo.png"),
+      //     ),
+      //     Container(
+      //       height: 50,
+      //       width: 100,
+      //       child: Image.network("https://upload.wikimedia.org/wikipedia/commons/1/17/Google-flutter-logo.png"),
+      //     ),
+      //     Container(
+      //       height: 50,
+      //       width: 100,
+      //       child: Image.network("https://upload.wikimedia.org/wikipedia/commons/1/17/Google-flutter-logo.png"),
+      //     ),
+      //   ],
+      // ),
+      body: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          Container(
+            height: 50,
+            width: 100,
+            child: Image.network("https://upload.wikimedia.org/wikipedia/commons/1/17/Google-flutter-logo.png"),
+          ),
+          Container(
+            height: 50,
+            width: 100,
+            child: Image.network("https://upload.wikimedia.org/wikipedia/commons/1/17/Google-flutter-logo.png"),
+          ),
+          Container(
+            height: 50,
+            width: 100,
+            child: Image.network("https://upload.wikimedia.org/wikipedia/commons/1/17/Google-flutter-logo.png"),
+          ),
+        ],
       ),
-
-
-
     );
   }
   
