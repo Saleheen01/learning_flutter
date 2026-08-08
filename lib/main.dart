@@ -44,8 +44,42 @@ class HomeActivity extends StatelessWidget{
               icon: Icon(Icons.email)),
 
         ],
+      ),
+
+      floatingActionButton: FloatingActionButton(
+        elevation: 10,
+        backgroundColor: Colors.green,
+        onPressed: () {mysnackar("This is floating action button", context);},
+        child: Icon(Icons.add),
+      ),
+
+      bottomNavigationBar: BottomNavigationBar(
+          backgroundColor: Colors.green,
+          currentIndex: 0,
+          items: [
+            BottomNavigationBarItem(icon: Icon(Icons.person),label:"Person"),
+            BottomNavigationBarItem(icon: Icon(Icons.contacts),label:"Contacts"),
+            BottomNavigationBarItem(icon: Icon(Icons.mail),label:"Email"),
+          ],
+        onTap: (int index)
+        {
+          if(index ==0)
+            {
+              mysnackar("I'm Profile", context);
+            }
+          if(index ==1)
+          {
+            mysnackar("I'm Contacts", context);
+          }if(index ==2)
+          {
+            mysnackar("I'm Email", context);
+          }
+
+
+        },
 
       ),
+
     );
   }
   
