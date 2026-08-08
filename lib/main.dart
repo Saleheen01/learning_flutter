@@ -57,7 +57,7 @@ class HomeActivity extends StatelessWidget{
           backgroundColor: Colors.green,
           currentIndex: 0,
           items: [
-            BottomNavigationBarItem(icon: Icon(Icons.person),label:"Person"),
+            BottomNavigationBarItem(icon: Icon(Icons.person),label:"Profile"),
             BottomNavigationBarItem(icon: Icon(Icons.contacts),label:"Contacts"),
             BottomNavigationBarItem(icon: Icon(Icons.mail),label:"Email"),
           ],
@@ -74,11 +74,109 @@ class HomeActivity extends StatelessWidget{
           {
             mysnackar("I'm Email", context);
           }
-
-
         },
-
       ),
+
+    drawer: Drawer(
+      child: ListView(
+        children: [
+          DrawerHeader(
+              padding:EdgeInsets.all(0),
+              child: UserAccountsDrawerHeader(
+                accountName: Text("Saleheen"),
+                accountEmail: Text("mdsaleheenferdous@gmail.com"),
+                currentAccountPicture: Image.network("https://upload.wikimedia.org/wikipedia/commons/1/17/Google-flutter-logo.png"),
+                onDetailsPressed: (){mysnackar("My all details", context);},
+              ),
+          ),
+          ListTile(
+            leading: Icon(Icons.person),
+            title: Text("Profile"),
+            selected: currentIndex==0,
+            selectedColor: Colors.green,
+            selectedTileColor: Colors.green.shade100,
+            onTap: ()
+            {
+              mysnackar("I'm profile", context);
+            },
+          ),
+          ListTile(
+            leading: Icon(Icons.contacts),
+            title: Text("Contacts"),
+            selected: currentIndex==0,
+            selectedColor: Colors.green,
+            selectedTileColor: Colors.green.shade100,
+            onTap: ()
+            {
+              mysnackar("I'm profile", context);
+            },
+          ),
+          ListTile(
+            leading: Icon(Icons.email),
+            title: Text("Email"),
+            selected: currentIndex==0,
+            selectedTileColor: Colors.green.shade100,
+            selectedColor: Colors.green,
+            onTap: ()
+            {
+              mysnackar("I'm profile", context);
+            },
+          ),
+        ],
+      ),
+    ),
+
+
+      endDrawer: Drawer(
+        child: ListView(
+          children: [
+            DrawerHeader(
+              padding:EdgeInsets.all(0),
+              child: UserAccountsDrawerHeader(
+                accountName: Text("Saleheen"),
+                accountEmail: Text("mdsaleheenferdous@gmail.com"),
+                currentAccountPicture: Image.network("https://upload.wikimedia.org/wikipedia/commons/1/17/Google-flutter-logo.png"),
+                //onDetailsPressed: (){mysnackar("My all details", context);},
+              ),
+            ),
+            ListTile(
+              leading: Icon(Icons.person),
+              title: Text("Profile"),
+              selected: currentIndex==0,
+              selectedColor: Colors.green,
+              selectedTileColor: Colors.green.shade100,
+              onTap: ()
+              {
+                mysnackar("I'm profile", context);
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.contacts),
+              title: Text("Contacts"),
+              selected: currentIndex==0,
+              selectedColor: Colors.green,
+              selectedTileColor: Colors.green.shade100,
+              onTap: ()
+              {
+                mysnackar("I'm profile", context);
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.email),
+              title: Text("Email"),
+              selected: currentIndex==0,
+              selectedTileColor: Colors.green.shade100,
+              selectedColor: Colors.green,
+              onTap: ()
+              {
+                mysnackar("I'm profile", context);
+              },
+            ),
+          ],
+        ),
+      ),
+
+
 
     );
   }
