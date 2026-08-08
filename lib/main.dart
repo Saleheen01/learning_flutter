@@ -18,7 +18,7 @@ class MyApp  extends StatelessWidget{
 }
 
 class HomeActivity extends StatelessWidget{
-  const HomeActivity({super.key});
+   HomeActivity({super.key});
 
   void mysnackar (String message, BuildContext context){
     ScaffoldMessenger.of(context).showSnackBar(
@@ -26,7 +26,14 @@ class HomeActivity extends StatelessWidget{
     );
 
   }
-
+  ButtonStyle buttonStyle = ElevatedButton.styleFrom(
+    padding: EdgeInsets.all(15),
+    backgroundColor: Colors.orange,
+    foregroundColor: Colors.white,
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(30),
+    )
+  );
   @override
   Widget build(BuildContext context) {
     int currentIndex=0;
@@ -209,26 +216,36 @@ class HomeActivity extends StatelessWidget{
       //     ),
       //   ],
       // ),
+      // body: Row(
+      //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      //   children: [
+      //     Container(
+      //       height: 50,
+      //       width: 100,
+      //       child: Image.network("https://upload.wikimedia.org/wikipedia/commons/1/17/Google-flutter-logo.png"),
+      //     ),
+      //     Container(
+      //       height: 50,
+      //       width: 100,
+      //       child: Image.network("https://upload.wikimedia.org/wikipedia/commons/1/17/Google-flutter-logo.png"),
+      //     ),
+      //     Container(
+      //       height: 50,
+      //       width: 100,
+      //       child: Image.network("https://upload.wikimedia.org/wikipedia/commons/1/17/Google-flutter-logo.png"),
+      //     ),
+      //   ],
+      // ),
       body: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          Container(
-            height: 50,
-            width: 100,
-            child: Image.network("https://upload.wikimedia.org/wikipedia/commons/1/17/Google-flutter-logo.png"),
-          ),
-          Container(
-            height: 50,
-            width: 100,
-            child: Image.network("https://upload.wikimedia.org/wikipedia/commons/1/17/Google-flutter-logo.png"),
-          ),
-          Container(
-            height: 50,
-            width: 100,
-            child: Image.network("https://upload.wikimedia.org/wikipedia/commons/1/17/Google-flutter-logo.png"),
-          ),
+          TextButton(onPressed: (){mysnackar("Im text Button", context);}, child: Text("Text_Button")),
+          OutlinedButton(onPressed: (){mysnackar("Im Out_Line Button", context);}, child: Text("out_Line__Button")),
+          ElevatedButton(onPressed: (){mysnackar("Im Elevated Button", context);}, child: Text("elevated_Button"),style: buttonStyle,),
         ],
+
       ),
+
     );
   }
   
