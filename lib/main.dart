@@ -21,7 +21,8 @@ class HomeActivity extends StatelessWidget{
 
   void mysnackar (String message, BuildContext context){
     ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text(message))
+        SnackBar(content: Text(message)),
+
     );
 
   }
@@ -52,12 +53,8 @@ class HomeActivity extends StatelessWidget{
 
 
   ButtonStyle buttonStyle = ElevatedButton.styleFrom(
-      padding: EdgeInsets.all(15),
-      backgroundColor: Colors.orange,
-      foregroundColor: Colors.white,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(30),
-      )
+      minimumSize: Size(double.infinity, 60),
+    backgroundColor: Colors.green,
   );
   @override
   Widget build(BuildContext context) {
@@ -261,17 +258,28 @@ class HomeActivity extends StatelessWidget{
       //     ),
       //   ],
       // ),
-      body: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      // body: Row(
+      //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      //   children: [
+      //     TextButton(onPressed: (){mysnackar("Im text Button", context);}, child: Text("Text_Button")),
+      //     OutlinedButton(onPressed: (){mysnackar("Im Out_Line Button", context);}, child: Text("out_Line__Button")),
+      //     ElevatedButton(onPressed: (){MyAlertDialogue(context);}, child: Text("Click Me"),style: buttonStyle,)
+      //     // ElevatedButton(onPressed: (){mysnackar("Im Elevated Button", context);}, child: Text("elevated_Button"),style: buttonStyle,),
+      //   ],
+      //
+      // ),
+
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          TextButton(onPressed: (){mysnackar("Im text Button", context);}, child: Text("Text_Button")),
-          OutlinedButton(onPressed: (){mysnackar("Im Out_Line Button", context);}, child: Text("out_Line__Button")),
-          ElevatedButton(onPressed: (){MyAlertDialogue(context);}, child: Text("Click Me"),style: buttonStyle,)
-          // ElevatedButton(onPressed: (){mysnackar("Im Elevated Button", context);}, child: Text("elevated_Button"),style: buttonStyle,),
+          Padding(padding: EdgeInsets.all(10),child: TextField(decoration: InputDecoration(border: OutlineInputBorder(),label: Text("First Name")),),),
+          Padding(padding: EdgeInsets.all(10),child: TextField(decoration: InputDecoration(border: OutlineInputBorder(),label: Text("Last Name")),),),
+          Padding(padding: EdgeInsets.all(10),child: TextField(decoration: InputDecoration(border: OutlineInputBorder(),label: Text("Input Password")),),),
+          Padding(padding: EdgeInsets.all(10),child: ElevatedButton(onPressed: (){MyAlertDialogue(context);}, child: Text("Submit"),style: buttonStyle,)),
+
+
         ],
-
       ),
-
     );
   }
 
