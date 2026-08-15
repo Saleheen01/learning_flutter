@@ -89,13 +89,19 @@ class HomeActivity extends StatelessWidget{
         //
         // ],
       ),
-      body: ListView.builder(
+      body: GridView.builder(
+        gridDelegate:
+        SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 2,
+          crossAxisSpacing: 1,
+
+        ),
         itemCount: Mylist.length,
         itemBuilder: (context,index){
           return GestureDetector(
             onTap: (){mysnackbar(context, Mylist[index]['title']);},
             child: Container(
-              margin: EdgeInsets.all(0),
+              margin: EdgeInsets.all(10),
               width: double.infinity,
               height: 150,
               child: Image.network(Mylist[index]['img']!,fit: BoxFit.fill,),
