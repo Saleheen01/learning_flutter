@@ -35,20 +35,22 @@ class HomeActivity extends StatelessWidget{
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
           ElevatedButton(onPressed: (){
-            Navigator.push(context, MaterialPageRoute(builder: (context)=>Activity1()));
+            Navigator.push(context, MaterialPageRoute(builder: (context)=>Activity1("This is home to Activity_1")));
 
           },
             style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.blue,),
-            child: Text("Go to Activity_1",style: TextStyle(color: Colors.black),),),
+            child: Text("Go to Activity_1",style: TextStyle(color: Colors.black),),
+          ),
 
           ElevatedButton(onPressed: (){
-            Navigator.push(context, MaterialPageRoute(builder: (context)=>Activity2()));
+            Navigator.push(context, MaterialPageRoute(builder: (context)=>Activity2("This is home to Activity_2")));
 
           },
             style: ElevatedButton.styleFrom(
               backgroundColor: Colors.blue,),
-            child: Text("Go to Activity_2",style: TextStyle(color: Colors.black),),),
+            child: Text("Go to Activity_2",style: TextStyle(color: Colors.black),),
+          ),
 
 
         ],
@@ -60,17 +62,22 @@ class HomeActivity extends StatelessWidget{
 
 
 class Activity1 extends StatelessWidget{
-  const Activity1({super.key});
+  String msg;
+   Activity1(
+      this.msg,
+      {super.key}) {
+
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(" This is Activity_1 "),
+        title: Text(msg),
       ),
       body: Center(
         child: ElevatedButton(
             onPressed: (){
-              Navigator.push(context, MaterialPageRoute(builder: (context)=>Activity2()));
+              Navigator.push(context, MaterialPageRoute(builder: (context)=>Activity2("This is Activity_1 to Activity_2")));
             },
             style: ElevatedButton.styleFrom(
               backgroundColor: Colors.green,),
@@ -79,7 +86,7 @@ class Activity1 extends StatelessWidget{
                   color: Colors.black,
                   ),
             )
-        )
+        ),
       ),
     );
   }
@@ -87,13 +94,30 @@ class Activity1 extends StatelessWidget{
 
 
 class Activity2 extends StatelessWidget{
-  const Activity2({super.key});
+  String msg;
+  Activity2(
+      this.msg,
+      {super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(" This is Activity_2 "),
+        title: Text(msg),
+      ),
+      body: Center(
+        child: ElevatedButton(
+            onPressed: (){
+              Navigator.push(context, MaterialPageRoute(builder: (context)=>Activity2("This is Activity_2 to Activity_1")));
+            },
+            style: ElevatedButton.styleFrom(
+              backgroundColor: Colors.green,),
+            child: Text("Go to Activity_1",
+              style: TextStyle(
+                color: Colors.black,
+              ),
+            )
+        ),
       ),
     );
   }
