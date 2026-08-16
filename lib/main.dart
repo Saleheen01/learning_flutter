@@ -1,4 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:learning_flutter/Fragment/AlarmFragment.dart';
+import 'package:learning_flutter/Fragment/BalanceFragment.dart';
+import 'package:learning_flutter/Fragment/ContactsFragment.dart';
+import 'package:learning_flutter/Fragment/EmailFragment.dart';
+import 'package:learning_flutter/Fragment/HomeFragment.dart';
+import 'package:learning_flutter/Fragment/PersonFragment.dart';
+import 'package:learning_flutter/Fragment/SearchFragment.dart';
+import 'package:learning_flutter/Fragment/SettingsFragment.dart';
 
 void main()
 {
@@ -73,46 +81,40 @@ class HomeActivity extends StatelessWidget{
 
   @override
   Widget build(BuildContext context) {
-    int currentIndex=0;
+      return DefaultTabController(
+          length: 8,
+          child: Scaffold(
+              appBar: AppBar(
+                title: Text("My App"),
+                bottom: TabBar(
+                  isScrollable: true,
+                    tabs: [
+                  Tab(icon: Icon(Icons.home),text: "Home",),
+                  Tab(icon: Icon(Icons.search),text: 'Search',),
+                  Tab(icon: Icon(Icons.settings),text: 'settings',),
+                  Tab(icon: Icon(Icons.email),text: 'email',),
+                  Tab(icon: Icon(Icons.contacts),text: 'contacts',),
+                  Tab(icon: Icon(Icons.person),text: 'person',),
+                  Tab(icon: Icon(Icons.access_alarm),text: 'Alarm',),
+                  Tab(icon: Icon(Icons.account_balance),text: 'Balance',),
+                    ]
+                ),
+              ),
+              body: TabBarView(
+                  children: [
+                    HomeFragment(),
+                    SearchFragment(),
+                    SettingsFragment(),
+                    EmailFragment(),
+                    ContactsFragment(),
+                    PersonFragment(),
+                    AlarmFragment(),
+                    BalanceFragment(),
 
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("Inventory App"),
-        backgroundColor: Colors.green,
-        // actions: [
-        //   IconButton(onPressed: (){mysnackar("this is profile", context);},
-        //       icon: Icon(Icons.person)),
-        //   IconButton(onPressed: (){mysnackar("this is contacts", context);},
-        //       icon: Icon(Icons.contacts)),
-        //   IconButton(onPressed: (){mysnackar("this is email", context);},
-        //       icon: Icon(Icons.email)),
-        //
-        // ],
-      ),
-      body: GridView.builder(
-        gridDelegate:
-        SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 2,
-          crossAxisSpacing: 1,
-
-        ),
-        itemCount: Mylist.length,
-        itemBuilder: (context,index){
-          return GestureDetector(
-            onTap: (){mysnackbar(context, Mylist[index]['title']);},
-            child: Container(
-              margin: EdgeInsets.all(10),
-              width: double.infinity,
-              height: 150,
-              child: Image.network(Mylist[index]['img']!,fit: BoxFit.fill,),
-
-
-            ),
-          );
-        },
-      ),
-
-    );
+                  ]
+              ),
+          )
+      );
   }
 
 }
